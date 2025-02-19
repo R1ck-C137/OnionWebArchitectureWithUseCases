@@ -1,4 +1,4 @@
-using OnionWebArchitectureWithUseCases.Application;
+using OnionWebArchitectureWithUseCases.Application.Requests.Clients;
 using OnionWebArchitectureWithUseCases.Core.Stores;
 using OnionWebArchitectureWithUseCases.Endpoints;
 using OnionWebArchitectureWithUseCases.Persistence;
@@ -17,8 +17,9 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateClientHandler).Assembly));
         builder.Services.AddScoped<IClientStore, ClientRepository>();
-        builder.Services.AddScoped<CreateClientHandler>();
+        //builder.Services.AddScoped<CreateClientHandler>();
         
         
         var app = builder.Build();

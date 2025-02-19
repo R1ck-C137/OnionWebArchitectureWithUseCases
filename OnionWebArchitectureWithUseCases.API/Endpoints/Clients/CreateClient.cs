@@ -1,4 +1,7 @@
-﻿using OnionWebArchitectureWithUseCases.Application;
+﻿using MediatR;
+using OnionWebArchitectureWithUseCases.Application;
+using OnionWebArchitectureWithUseCases.Application.Requests;
+using OnionWebArchitectureWithUseCases.Application.Requests.Clients;
 
 namespace OnionWebArchitectureWithUseCases.Endpoints.Clients;
 
@@ -6,14 +9,10 @@ public static class CreateClient
 {
    public static void CreateClientEndpoint(this IEndpointRouteBuilder app)
    {
-      app.MapPost("/client", Create);
-   }
-
-   private static async Task<IResult> Create(
-      CreateClientHandler handler, 
-      CreateClientRequest request)
-   {
-      await handler.Handle(request);
-      return Results.Ok();
+      app.MapPost("/client", async (IMediator mediator, CreateClientRequest request) =>
+      {
+         await mediator.Send(request);
+         return Results.Ok();
+      });
    }
 }
