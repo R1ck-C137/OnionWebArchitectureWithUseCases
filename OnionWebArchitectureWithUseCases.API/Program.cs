@@ -1,4 +1,4 @@
-using OnionWebArchitectureWithUseCases.Application.Requests.Clients;
+using OnionWebArchitectureWithUseCases.Application.Clients.Command;
 using OnionWebArchitectureWithUseCases.Core.Stores;
 using OnionWebArchitectureWithUseCases.Endpoints;
 using OnionWebArchitectureWithUseCases.Persistence;
