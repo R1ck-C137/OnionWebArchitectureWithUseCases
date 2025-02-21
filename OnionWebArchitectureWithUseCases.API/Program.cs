@@ -19,7 +19,6 @@ public class Program
         builder.Services.AddSwaggerGen();
         builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateClientHandler).Assembly));
         builder.Services.AddScoped<IClientStore, ClientRepository>();
-        //builder.Services.AddScoped<CreateClientHandler>();
         
         
         var app = builder.Build();

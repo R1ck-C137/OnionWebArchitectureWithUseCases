@@ -12,5 +12,5 @@ public interface IClientStore
 
     Task<Client> GetByLastName(string lastName);
 
-    Task Create(Client client);
+    Task<Guid> Create(Client client);
 }
