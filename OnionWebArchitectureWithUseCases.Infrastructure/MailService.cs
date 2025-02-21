@@ -1,9 +1,20 @@
-﻿namespace OnionWebArchitectureWithUseCases.Infrastructure;
+﻿using MediatR;
+using OnionWebArchitectureWithUseCases.Application.Clients.Events;
+using OnionWebArchitectureWithUseCases.Core.Stores;
 
-public class MailService
+namespace OnionWebArchitectureWithUseCases.Infrastructure;
+
+public class SendWelcomeEmailHandler : INotificationHandler<ClientCreatedEvent>
 {
-    public Task Send()
+    private readonly IMailService _mailService;
+
+    public SendWelcomeEmailHandler(IMailService mailService)
     {
-        throw new NotImplementedException(); 
+        _mailService = mailService;
+    }
+
+    public async Task Handle(ClientCreatedEvent notification, CancellationToken cancellationToken)
+    {
+        await _mailService.SendWelcomeEmail(notification.ClientId);
     }
 }
