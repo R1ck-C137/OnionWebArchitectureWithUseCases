@@ -2,5 +2,5 @@
 
 public interface IMailService
 {
-    public Task SendWelcomeEmail(uint clientId);
+    public Task SendWelcomeEmail(Guid clientId);
 }
