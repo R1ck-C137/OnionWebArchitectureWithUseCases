@@ -15,6 +15,7 @@ public class SendWelcomeEmailHandler : INotificationHandler<ClientCreatedEvent>
 
     public async Task Handle(ClientCreatedEvent notification, CancellationToken cancellationToken)
     {
-        await _mailService.SendWelcomeEmail(notification.ClientId);
+        //TODO: разобраться когда сюда приходит поток
+        await _mailService.SendWelcomeEmail(notification.ClientId); // TODO: переписать это как внешний сервис
     }
 }

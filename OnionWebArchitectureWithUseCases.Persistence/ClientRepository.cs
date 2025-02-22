@@ -25,8 +25,8 @@ public class ClientRepository : IClientStore
         throw new NotImplementedException();
     }
 
-    public Task<Guid> Create(Client client)
+    public async Task<Guid> Create(Client client)
     {
-        throw new NotImplementedException();
+        return new Guid();
     }
 }

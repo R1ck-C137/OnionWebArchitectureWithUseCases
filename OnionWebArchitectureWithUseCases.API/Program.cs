@@ -17,8 +17,11 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(CreateClientHandler).Assembly));
+        builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(
+            typeof(CreateClientCommand).Assembly
+        ));
         builder.Services.AddScoped<IClientStore, ClientRepository>();
+        //builder.Services.AddScoped<IMailService, MailService>();
         
         
         var app = builder.Build();

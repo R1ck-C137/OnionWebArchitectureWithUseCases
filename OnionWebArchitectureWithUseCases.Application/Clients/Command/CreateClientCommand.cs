@@ -17,7 +17,7 @@ public class CreateClientHandler(IClientStore _clientStore, IMediator _mediator)
             LastName = request.LastName
         };
         var clientId = await _clientStore.Create(client);
-        await _mediator.Publish(new ClientCreatedEvent(clientId), cancellationToken); // Событие
+        await _mediator.Publish(new ClientCreatedEvent(clientId), cancellationToken); // TODO: зачем нужен это токен
         return clientId;
     }
 }
