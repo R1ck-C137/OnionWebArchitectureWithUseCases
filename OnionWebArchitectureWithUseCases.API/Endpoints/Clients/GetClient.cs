@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using OnionWebArchitectureWithUseCases.Application.Clients.Query;
+using OnionWebArchitectureWithUseCases.Application.Clients.Querys;
 
 namespace OnionWebArchitectureWithUseCases.Endpoints.Clients;
 

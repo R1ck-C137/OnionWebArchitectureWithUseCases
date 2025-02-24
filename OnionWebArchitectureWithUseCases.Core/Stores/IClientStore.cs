@@ -6,7 +6,7 @@ public interface IClientStore
 {
     Task<IReadOnlyList<Client>> GetByFilter(ClientFilter filter);
 
-    Task<Client> GetById(Guid id);
+    Task<Client?> GetById(Guid id);
 
     Task<Client> GetByFirstName(string lastName);
 
